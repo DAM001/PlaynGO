@@ -3,18 +3,22 @@ class Player {
     player;
     weapon;
 
-    playerSpeed = 10;
+    playerSpeed = 7;
+    active = true;
 
 
 
-    constructor(updateObjects, scene, startPosX, startPosY) {
+    constructor(startPosX, startPosY) {
         this.player = new PIXI.Sprite.from("Assets/Used/Player.png");
+        scene.SetParent(this.player);
+
         this.player.anchor.set(.5);
         this.player.x = startPosX;
         this.player.y = startPosY;
-        scene.SetParent(this.player);
+        this.player.width = 50;
+        this.player.height = 60;
 
-        this.weapon = new Weapon(updateObjects, scene);
+        this.weapon = new Weapon(scene);
     }
     setPosition(x, y) {
         this.player.x = x;
@@ -40,12 +44,20 @@ class Player {
 
 
     update(keys) {
+        if (!this.active) return;
+
         window.addEventListener("keydown", this.keysDown);
         window.addEventListener("keyup", this.keysUp);
         this.movement(keys);
     }
     keysDown(e) { this.keys[e.keyCode] = true; }
     keysUp(e) { this.keys[e.keyCode] = false; }
+
+
+    die() {
+        this.active = false;
+        ui.gameOver();
+    }
 }
 
 //87, 65, 83, 68, 32 W A S D Space

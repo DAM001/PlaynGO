@@ -1,15 +1,12 @@
 class Weapon {
-    fireRate = 15;
+    fireRate = 8;
     cooldown = 0;
 
-    constructor(updateObjects, scene) {
-        this.updateObjects = updateObjects;
-        this.scene = scene;
-
+    constructor() {
         updateObjects.push(this);
 
         for (var i = 0; i < this.maxBulletsNum; i++) {
-            this.bullets[i] = new Bullet(scene);
+            this.bullets[i] = new Bullet();
             updateObjects.push(this.bullets[i]);
         }
     }
@@ -18,14 +15,14 @@ class Weapon {
         this.cooldown--;
     }
 
-    maxBulletsNum = 5;
+    maxBulletsNum = 10;
     currentBulletIndex = 0;
     bullets = {};
     fire(startPosX, startPosY) {
         if (this.cooldown > 0) return;
         this.cooldown = this.fireRate;
 
-        this.bullets[this.currentBulletIndex].setActive(startPosX, startPosY);
+        this.bullets[this.currentBulletIndex].setActive(startPosX + 50, startPosY);
         if (this.currentBulletIndex < this.maxBulletsNum - 1) this.currentBulletIndex++;
         else this.currentBulletIndex = 0;
     }

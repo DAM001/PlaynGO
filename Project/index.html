@@ -15,17 +15,28 @@
     <!-- Include files -->
     <link rel="stylesheet" href="Data/style.css">
     <script src="Data/pixi.min.js"></script>
-    <!--<script src="Data/app.js "></script>-->
-    <script src="Data/Scripts/gameManager.js"></script>
-    <script src="Data/Scripts/scene.js"></script>
-    <script src="Data/Scripts/player.js"></script>
-    <script src="Data/Scripts/weapon.js"></script>
-    <script src="Data/Scripts/bullet.js"></script>
+
+    <script src="Assets/Scripts/gameManager.js"></script>
+    <script src="Assets/Scripts/scene.js"></script>
+    <script src="Assets/Scripts/ui.js"></script>
+
+    <script src="Assets/Scripts/player.js"></script>
+    <script src="Assets/Scripts/weapon.js"></script>
+    <script src="Assets/Scripts/bullet.js"></script>
+
+    <script src="Assets/Scripts/spawner.js"></script>
+    <script src="Assets/Scripts/enemy.js"></script>
 </head>
 
 <!-- Body -->
 
 <body id="body">
+    <div id="gameFolder">
+        <div id="score">Score: 0</div>
+        <div id="gameOver">
+            <div class="gameOverText">Game Over!</div>
+        </div>
+    </div>
 </body>
 
 </html>
