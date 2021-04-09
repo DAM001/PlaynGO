@@ -2,6 +2,8 @@ class Spawner {
     spawnRate = 50;
     cooldown = 120;
 
+    active = false;
+
     constructor() {
         updateObjects.push(this);
 
@@ -12,6 +14,7 @@ class Spawner {
     }
 
     update() {
+        if (!this.active) return;
         this.cooldown--;
 
         if (this.cooldown > 0) return;
@@ -27,5 +30,14 @@ class Spawner {
         this.enemies[this.currentEnemyIndex].create();
         if (this.currentEnemyIndex < this.maxEnemyNum - 1) this.currentEnemyIndex++;
         else this.currentEnemyIndex = 0;
+    }
+
+    setActive(isActive) {
+        this.active = isActive;
+
+        if (isActive) return; //remove all enemy from the map
+        for (var i = 0; i < this.maxEnemyNum; i++) {
+            this.enemies[i].enemy.x = -1000;
+        }
     }
 }

@@ -4,17 +4,17 @@ class Player {
     weapon;
 
     playerSpeed = 7;
-    active = true;
+    active = false;
 
 
 
-    constructor(startPosX, startPosY) {
+    constructor() {
         this.player = new PIXI.Sprite.from("Assets/Used/Player.png");
         scene.SetParent(this.player);
 
-        this.player.anchor.set(.5);
-        this.player.x = startPosX;
-        this.player.y = startPosY;
+        this.player.anchor.set(.5, .5);
+        this.player.x = 100;
+        this.player.y = scene.GetHeight / 2;
         this.player.width = 50;
         this.player.height = 60;
 
@@ -30,8 +30,19 @@ class Player {
 
     edgeCollisionSize = 50;
     movement(keys) {
-        if (keys["87"] && this.player.y > this.edgeCollisionSize) this.player.y -= this.playerSpeed;
-        if (keys["83"] && this.player.y < (scene.GetHeight - this.edgeCollisionSize)) this.player.y += this.playerSpeed;
+        if (keys["87"] && this.player.y > this.edgeCollisionSize) {
+            this.player.y -= this.playerSpeed;
+            this.player.anchor.set(.5, .4);
+            this.player.height = 50;
+        } else if (keys["83"] && this.player.y < (scene.GetHeight - this.edgeCollisionSize)) {
+            this.player.y += this.playerSpeed;
+            this.player.anchor.set(.5, .6);
+            this.player.height = 50;
+        } else {
+            this.player.anchor.set(.5, .5);
+            this.player.height = 60;
+        }
+
         if (keys["65"] && this.player.x > this.edgeCollisionSize) this.player.x -= this.playerSpeed;
         if (keys["68"] && this.player.x < (scene.GetWidth - this.edgeCollisionSize)) this.player.x += this.playerSpeed;
 
@@ -54,6 +65,11 @@ class Player {
     keysUp(e) { this.keys[e.keyCode] = false; }
 
 
+    restart() {
+        this.active = true;
+        this.player.x = 100;
+        this.player.y = scene.GetHeight / 2;
+    }
     die() {
         this.active = false;
         ui.gameOver();

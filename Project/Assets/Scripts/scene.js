@@ -6,10 +6,10 @@ class Scene {
         this.app = new PIXI.Application({
             width: this.width,
             height: this.height,
-            backgroundColor: 0x000000
+            backgroundColor: 0x050505
         });
 
-        document.getElementById("gameFolder").appendChild(this.app.view);
+        document.getElementById("content").appendChild(this.app.view);
     }
 
     SetParent(childObject) {

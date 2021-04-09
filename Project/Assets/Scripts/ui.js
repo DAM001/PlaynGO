@@ -3,17 +3,19 @@ class Ui {
 
     score = 0;
     get getScore() {
-        this.score++;
+        if (player.active) this.score++;
         return this.score;
     }
 
 
     gameOver() {
         document.getElementById("gameOver").style.display = "block";
-        setTimeout(this.die, 2000);
+        spawner.setActive(false);
     }
 
-    die() {
-        location.reload();
+    restart() {
+        document.getElementById("gameOver").style.display = "none";
+        player.restart();
+        spawner.setActive(true);
     }
 }

@@ -36,8 +36,6 @@ class Enemy {
         var colliderSize = 40;
         if ((this.enemy.y + colliderSize) > player.player.y && (this.enemy.y - colliderSize) < player.player.y &&
             (this.enemy.x + colliderSize) > player.player.x && (this.enemy.x - colliderSize) < player.player.x) {
-            console.log("collision with player");
-
             player.die();
             this.damage(100);
         }

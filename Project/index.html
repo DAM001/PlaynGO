@@ -10,15 +10,19 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>DAM's shooter</title>
+    <title>Space shooter thing</title>
 
     <!-- Include files -->
     <link rel="stylesheet" href="Data/style.css">
     <script src="Data/pixi.min.js"></script>
+    <script src="Data/app.js"></script>
+
 
     <script src="Assets/Scripts/gameManager.js"></script>
     <script src="Assets/Scripts/scene.js"></script>
     <script src="Assets/Scripts/ui.js"></script>
+    <script src="Assets/Scripts/background.js"></script>
+    <script src="Assets/Scripts/star.js"></script>
 
     <script src="Assets/Scripts/player.js"></script>
     <script src="Assets/Scripts/weapon.js"></script>
@@ -31,10 +35,24 @@
 <!-- Body -->
 
 <body id="body">
-    <div id="gameFolder">
-        <div id="score">Score: 0</div>
-        <div id="gameOver">
-            <div class="gameOverText">Game Over!</div>
+    <div class="content" id="content">
+        <div id="gameMenu">
+            <div class="buttonFolder">
+                <div class="title">Space shooter thing</div>
+                <div class="button" onclick="showMenu(false); ui.restart();">Start</div>
+                <div class="button" onclick="showMenu(false); ui.restart();">Start</div>
+                <div class="button" onclick="showMenu(false); ui.restart();">Start</div>
+                <div class="button" onclick=window.location='http://www.dam.nhely.hu/'>About me</div>
+            </div>
+        </div>
+        <div id="gameFolder">
+            <div class="screenDecor"></div>
+            <div id="score">Score: 0</div>
+            <div id="gameOver">
+                <div class="gameOverText">Game Over!</div>
+                <div class="button" onclick="ui.restart();">Retry</div>
+                <div class="button" onclick="showMenu(true);">Menu</div>
+            </div>
         </div>
     </div>
 </body>
