@@ -24,9 +24,11 @@ canvas {
 
 /* Menu things */
 
-#menuFolder {
+#gameMenu {
     width: 800px;
     height: 600px;
+    display: none;
+    position: absolute;
 }
 
 .buttonFolder {
@@ -46,7 +48,19 @@ canvas {
 }
 
 
-/* Game thigns */
+/* Splash screen */
+
+.logo {
+    display: block;
+    border: none;
+    margin: auto;
+    height: 600px;
+    width: 800px;
+    position: absolute;
+}
+
+
+/* Game things */
 
 #gameFolder {
     display: none;
@@ -92,7 +106,7 @@ canvas {
     flex-wrap: wrap;
     position: absolute;
     align-content: center;
-    animation: deathAnimation 1s;
+    animation: deathAnimation 2s;
     display: none;
 }
 
@@ -114,4 +128,27 @@ canvas {
     font-size: 62px;
     font-weight: 900;
     text-shadow: 10px 10px 30px #000;
+}
+
+
+/* Game settings */
+
+.muteButton {
+    width: 60px;
+    padding: 5px;
+    transition: .2s;
+    margin: 15px 0 0 650px;
+    position: absolute;
+    /* text */
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 900;
+    /* background */
+    background-color: #b4eba9;
+}
+
+.muteButton:hover {
+    transform: scaleY(1.2);
+    cursor: pointer;
 }

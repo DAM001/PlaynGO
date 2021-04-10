@@ -33,4 +33,12 @@ class Star {
 
         this.star.rotation = (Math.floor(Math.random() * 10) - 5) / 5;
     }
+
+    starMovementAnim(moveValue) {
+        var animationSpeed = this.speed / 50;
+        if (moveValue[0] >= 1 || moveValue[0] <= -1) this.star.y -= moveValue[0] * animationSpeed;
+        if (moveValue[1] >= 1 || moveValue[1] <= -1) this.star.x -= moveValue[1] * animationSpeed;
+    }
+
+    get isStar() { return true; }
 }

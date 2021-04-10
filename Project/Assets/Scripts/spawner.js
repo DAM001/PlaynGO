@@ -1,5 +1,5 @@
 class Spawner {
-    spawnRate = 50;
+    spawnRate = 120;
     cooldown = 120;
 
     active = false;
@@ -26,6 +26,8 @@ class Spawner {
     enemies = {};
     spawn() {
         this.cooldown = this.spawnRate;
+        if (this.spawnRate > 30) this.spawnRate -= 1;
+
 
         this.enemies[this.currentEnemyIndex].create();
         if (this.currentEnemyIndex < this.maxEnemyNum - 1) this.currentEnemyIndex++;
@@ -39,5 +41,7 @@ class Spawner {
         for (var i = 0; i < this.maxEnemyNum; i++) {
             this.enemies[i].enemy.x = -1000;
         }
+        this.spawnRate = 120;
+        this.cooldown = 120;
     }
 }

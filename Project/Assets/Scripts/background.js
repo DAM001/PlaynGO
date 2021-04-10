@@ -1,6 +1,7 @@
 class Background {
     refreshRate = 15;
-    cooldown = 0;
+    cooldown = 210;
+    active = false;
 
     constructor() {
         updateObjects.push(this);

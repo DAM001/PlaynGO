@@ -23,12 +23,12 @@
     <script src="Assets/Scripts/ui.js"></script>
     <script src="Assets/Scripts/background.js"></script>
     <script src="Assets/Scripts/star.js"></script>
+    <script src="Assets/Scripts/spawner.js"></script>
 
+    <script src="Assets/Scripts/spaceship.js"></script>
     <script src="Assets/Scripts/player.js"></script>
     <script src="Assets/Scripts/weapon.js"></script>
     <script src="Assets/Scripts/bullet.js"></script>
-
-    <script src="Assets/Scripts/spawner.js"></script>
     <script src="Assets/Scripts/enemy.js"></script>
 </head>
 
@@ -36,6 +36,9 @@
 
 <body id="body">
     <div class="content" id="content">
+        <div id="splashScreen">
+            <iframe class="logo" id="logo" src="./Assets/Logo/DAM_Logo/logo.html"></iframe>
+        </div>
         <div id="gameMenu">
             <div class="buttonFolder">
                 <div class="title">Space shooter thing</div>
@@ -53,6 +56,10 @@
                 <div class="button" onclick="ui.restart();">Retry</div>
                 <div class="button" onclick="showMenu(true);">Menu</div>
             </div>
+        </div>
+        <div class="gameSettings">
+            <div class="muteButton" id="muteMusic" onclick="ui.muteMusic();">Music</div>
+            <div class="muteButton" id="muteSounds" onclick="ui.muteSounds();" style="margin-left: 720px;">Sounds</div>
         </div>
     </div>
 </body>
