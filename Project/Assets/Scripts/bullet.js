@@ -52,11 +52,11 @@ class Bullet {
 
         //collision
         for (var i = 0; i < updateObjects.length; i++) {
-            if (updateObjects[i].getHealth > 0) {
+            if (updateObjects[i].health) {
                 if ((this.bullet.y + 25) > updateObjects[i].enemy.y && (this.bullet.y - 25) < updateObjects[i].enemy.y &&
                     (this.bullet.x + 25) > updateObjects[i].enemy.x && (this.bullet.x - 25) < updateObjects[i].enemy.x &&
                     !this.impactEffect) {
-                    updateObjects[i].damage(34);
+                    updateObjects[i].health.damage(34);
 
                     this.impact();
                 }

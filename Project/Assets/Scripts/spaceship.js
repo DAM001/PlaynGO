@@ -3,6 +3,12 @@ class Spaceship {
     constructor(spaceship, edgeCollision) {
         this.spaceship = spaceship;
         this.edgeCollision = edgeCollision;
+
+        this.prepareExplotion();
+    }
+
+    update() {
+        this.explotionUpdate();
     }
 
     currentVelocity = [.0, 0];
@@ -54,5 +60,67 @@ class Spaceship {
         for (var i = 0; i < updateObjects.length; i++) {
             if (updateObjects[i].isStar) updateObjects[i].starMovementAnim(this.currentVelocity);
         }
+    }
+
+
+
+    die() {
+        this.explotion();
+        this.active = false;
+        this.spaceship.x = -1000;
+        this.spaceship.y = -1000;
+
+        document.getElementById("score").innerHTML = "Score: " + ui.getScore;
+    }
+
+    //explotionEffect
+    explotionEffect;
+    explotionEffectSize;
+    explotionSound;
+    prepareExplotion() {
+        this.explotionEffect = new PIXI.Sprite.from("Assets/Used/Explotion.png");
+        this.explotionEffect.anchor.set(.5);
+        scene.SetParent(this.explotionEffect);
+        this.explotionEffect.x = -1000;
+        this.explotionEffect.y = -1000;
+
+        this.explotionSound = new Audio("Assets/Sounds/Explotion.ogg");
+    }
+    explotion() {
+        this.explotionEffect.x = this.spaceship.x;
+        this.explotionEffect.y = this.spaceship.y;
+        this.explotionEffectSize = 0;
+        this.explotionEffect.width = this.explotionEffectSize;
+        this.explotionEffect.height = this.explotionEffectSize;
+
+        if (ui.getPlaySounds) this.explotionSound.play();
+    }
+    explotionUpdate() {
+        if (this.active) return;
+
+        var maxSize = 500;
+        var effectSpeed = 20;
+        if (this.explotionEffectSize < maxSize) this.explotionEffectSize += effectSpeed;
+        this.explotionEffect.width = this.explotionEffectSize;
+        this.explotionEffect.height = this.explotionEffectSize;
+        this.explotionEffect.alpha = (maxSize - this.explotionEffectSize) / maxSize;
+    }
+}
+
+
+class Health {
+    spaceship;
+    health = 100;
+
+
+    constructor(spaceship) {
+        this.spaceship = spaceship;
+    }
+
+    get getHealth() { return this.health; }
+    setHealth(health) { this.health = health; }
+    damage(amount) {
+        this.health -= amount;
+        if (this.health <= 0) this.spaceship.die();
     }
 }
