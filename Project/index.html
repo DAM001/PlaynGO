@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Space shooter thing</title>
-    <link rel="icon" type="image/png" href="/Assets/Used/Player.png" />
+    <link rel="icon" type="image/png" href="Assets/Used/Player0.png" />
 
     <!-- Include files -->
     <link rel="stylesheet" href="Data/style.css">
@@ -44,10 +44,10 @@
         <div id="gameMenu">
             <div class="buttonFolder">
                 <div class="title">Space shooter thing</div>
-                <div class="button" onclick="showMenu(false); ui.restart();">Start</div>
-                <div class="button" onclick="showMenu(false); ui.restart();">Start</div>
-                <div class="button" onclick="showMenu(false); ui.restart();">Start</div>
-                <div class="button" onclick=window.location='http://www.dam.nhely.hu/'>About me</div>
+                <div class="button" onclick="showMenu(false, 0); ui.restart();">GAME1</div>
+                <div class="button" onclick="showMenu(false, 1); ui.restart();">GAME2</div>
+                <div class="button" onclick="showMenu(false, 2); ui.restart();">GAME3</div>
+                <div class="button" onclick=window.location='http://www.dam.nhely.hu/'>EXIT</div>
             </div>
         </div>
         <div id="gameFolder">
@@ -64,6 +64,18 @@
             <div class="muteButton" id="muteMusic" onclick="ui.muteMusic();">Music</div>
             <div class="muteButton" id="muteSounds" onclick="ui.muteSounds();" style="margin-left: 720px;">Sounds</div>
         </div>
+    </div>
+    <div class="description">
+        Space shooter thing by DAM - Description
+        <br><br> Menu:
+        <br> - GAME1 / GAME2 / GAME3 starts the game (set different spaceship texture)
+        <br> - EXIT navigates to my website
+        <br><br> Game:
+        <br> - W / A / S / D movement
+        <br> - Your goal is to destroy as many enemy as you can without colliding with them
+        <br><br>Sound settings:
+        <br> - Press the buttons at the top right corner, to mute or unmute the music and the sound effects
+
     </div>
 </body>
 

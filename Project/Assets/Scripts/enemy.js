@@ -62,10 +62,3 @@ class EnemyBase {
         this.enemy.y = Math.floor(Math.random() * (scene.GetHeight - this.edgeCollisionSize * 2) + this.edgeCollisionSize);
     }
 }
-
-
-class SimpleEnemy {
-    constructor() {
-        this.enemy = new EnemyBase(100, 3.0, new PIXI.Texture.from("Assets/Used/Enemy0.png"), true);
-    }
-}

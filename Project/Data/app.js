@@ -1,4 +1,4 @@
-function showMenu(show) {
+function showMenu(show, type) {
     if (show) {
         document.getElementById("gameMenu").style.display = "block";
         document.getElementById("gameFolder").style.display = "none";
@@ -8,6 +8,8 @@ function showMenu(show) {
     } else {
         document.getElementById("gameMenu").style.display = "none";
         document.getElementById("gameFolder").style.display = "block";
+
+        player.setSkin(type);
     }
 }
 

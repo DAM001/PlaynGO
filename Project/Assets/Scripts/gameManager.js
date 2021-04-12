@@ -17,7 +17,7 @@ function startFunction() {
     ui = new Ui();
     background = new Background();
     spawner0 = new Spawner(0, 120);
-    spawner1 = new Spawner(1, 200);
+    spawner1 = new Spawner(1, 180);
     player = new Player();
 
     statistics = new Statistics();

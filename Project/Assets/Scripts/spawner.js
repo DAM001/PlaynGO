@@ -29,7 +29,7 @@ class Spawner {
     enemies = {};
     spawn() {
         this.cooldown = this.spawnRate;
-        if (this.spawnRate > 30) this.spawnRate -= 1;
+        //if (this.spawnRate > 30) this.spawnRate -= 1;
 
         this.enemies[this.currentEnemyIndex].spawn();
         if (this.currentEnemyIndex < this.maxEnemyNum - 1) this.currentEnemyIndex++;

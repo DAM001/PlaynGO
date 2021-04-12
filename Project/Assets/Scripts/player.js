@@ -11,7 +11,7 @@ class Player {
 
 
     constructor() {
-        this.player = new PIXI.Sprite.from("Assets/Used/Player.png");
+        this.player = new PIXI.Sprite.from("Assets/Used/Player0.png");
         scene.SetParent(this.player);
 
         this.player.anchor.set(.5, .5);
@@ -81,5 +81,13 @@ class Player {
         this.player.y = -1000;
 
         ui.gameOver();
+    }
+
+
+
+    setSkin(skinType) {
+        if (skinType == 0) this.player.texture = new PIXI.Texture.from("Assets/Used/Player0.png");
+        if (skinType == 1) this.player.texture = new PIXI.Texture.from("Assets/Used/Player1.png");
+        if (skinType == 2) this.player.texture = new PIXI.Texture.from("Assets/Used/Player2.png");
     }
 }
