@@ -46,6 +46,9 @@ class Player {
 
     weaponFire() {
         this.weapon.fire(this.GetPositionX, this.GetPositionY);
+
+        //data
+        statistics.addShoot();
     }
 
 

@@ -5,7 +5,7 @@ class Ui {
     }
 
     score = 0;
-    get getScore() {
+    get getAddScore() {
         if (player.active) this.score++;
         return this.score;
     }
@@ -13,11 +13,23 @@ class Ui {
 
     gameOver() {
         document.getElementById("gameOver").style.display = "block";
+
+        var infoTextContent;
+        var randomNumber = Math.floor(Math.random() * 4);
+        if (randomNumber == 0) infoTextContent = "Shoots: " + statistics.shoots;
+        else if (randomNumber == 1) infoTextContent = "Player hits: " + statistics.hits;
+        else if (randomNumber == 2) infoTextContent = "Enemies spawned: " + statistics.enemiesSpawned;
+        else if (randomNumber == 3) infoTextContent = "Near kills: " + statistics.nearKills;
+        document.getElementById("infoText").innerHTML = "Score: " + this.score + " | " + infoTextContent;
+
+
         spawner0.setActive(false);
         spawner1.setActive(false);
 
         this.musicPlayer.src = "Assets/Sounds/Music/GameOver.mp3";
         this.playGameOverMusic();
+
+        statistics.writeOutStatsToConsole();
     }
 
     restart() {
@@ -31,6 +43,9 @@ class Ui {
 
         this.musicPlayer.src = "Assets/Sounds/Music/GameMusic.mp3";
         this.playGameMusic();
+
+        //data
+        statistics.resetData();
     }
 
     //gameMusic

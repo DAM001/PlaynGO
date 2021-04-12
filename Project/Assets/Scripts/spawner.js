@@ -34,6 +34,9 @@ class Spawner {
         this.enemies[this.currentEnemyIndex].spawn();
         if (this.currentEnemyIndex < this.maxEnemyNum - 1) this.currentEnemyIndex++;
         else this.currentEnemyIndex = 0;
+
+        //data
+        statistics.addEnemySpawn();
     }
 
     setActive(isActive) {

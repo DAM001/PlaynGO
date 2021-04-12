@@ -59,6 +59,10 @@ class Bullet {
                     updateObjects[i].health.damage(34);
 
                     this.impact();
+
+
+                    //data
+                    statistics.addHit();
                 }
             }
         }

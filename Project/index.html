@@ -11,12 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Space shooter thing</title>
+    <link rel="icon" type="image/png" href="/Assets/Used/Player.png" />
 
     <!-- Include files -->
     <link rel="stylesheet" href="Data/style.css">
     <script src="Data/pixi.min.js"></script>
     <script src="Data/app.js"></script>
 
+    <script src="Assets/Scripts/statistics.js"></script>
 
     <script src="Assets/Scripts/gameManager.js"></script>
     <script src="Assets/Scripts/scene.js"></script>
@@ -53,6 +55,7 @@
             <div id="score">Score: 0</div>
             <div id="gameOver">
                 <div class="gameOverText">Game Over!</div>
+                <div id="infoText"></div>
                 <div class="button" onclick="ui.restart();">Retry</div>
                 <div class="button" onclick="showMenu(true);">Menu</div>
             </div>

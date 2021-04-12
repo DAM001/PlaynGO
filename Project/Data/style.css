@@ -8,13 +8,14 @@
 body {
     background-color: #353535;
     overflow-x: hidden;
+    user-select: none;
 }
 
 .content {
     box-shadow: 10px 10px 30px #000;
     width: 800px;
     height: 600px;
-    margin: 30px;
+    margin: 30px auto;
 }
 
 canvas {
@@ -126,6 +127,17 @@ canvas {
     /* text */
     color: #fff;
     font-size: 62px;
+    font-weight: 900;
+    text-shadow: 10px 10px 30px #000;
+}
+
+#infoText {
+    text-align: center;
+    margin-top: -20px;
+    padding: 10px;
+    /* text */
+    color: #fff;
+    font-size: 18px;
     font-weight: 900;
     text-shadow: 10px 10px 30px #000;
 }

@@ -80,12 +80,20 @@ class Spaceship {
     }
 
     die() {
+        //data
+        var distance = 100;
+        if ((player.player.y + distance) > this.spaceship.y && (player.player.y - distance) < this.spaceship.y &&
+            (player.player.x + distance) > this.spaceship.x && (player.player.x - distance) < this.spaceship.x) {
+            statistics.addNearKill();
+        }
+
         this.explotion();
         this.active = false;
         this.spaceship.x = -1000;
         this.spaceship.y = -1000;
 
-        document.getElementById("score").innerHTML = "Score: " + ui.getScore;
+        //ui
+        document.getElementById("score").innerHTML = "Score: " + ui.getAddScore;
     }
 
     //explotionEffect

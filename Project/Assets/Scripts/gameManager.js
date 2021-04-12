@@ -7,6 +7,8 @@ let player;
 let spawner0;
 let spawner1;
 
+
+let statistics;
 window.onload = startFunction;
 
 function startFunction() {
@@ -18,6 +20,7 @@ function startFunction() {
     spawner1 = new Spawner(1, 200);
     player = new Player();
 
+    statistics = new Statistics();
     start();
 }
 
@@ -30,3 +33,8 @@ function updateFunction() {
         updateObjects[i].update();
     }
 }
+
+
+//Task: https://drive.google.com/file/d/1FO92R-Vf8FrorC_CNYUsmRoG1IpO0-vT/view?usp=sharing
+//Project: http://www.dam.nhely.hu/Content/Project/
+//Github: https://github.com/DAM001/PlaynGO
