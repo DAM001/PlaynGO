@@ -14,22 +14,35 @@ class Star {
 
     update() {
         this.star.x -= this.speed;
+        this.star.rotation += .01;
     }
 
     setPosition() {
         this.speed = Math.floor(Math.random() * 7) + 2;
 
-        this.star.x = scene.GetWidth + 50;
+        this.star.x = scene.GetWidth + 100;
         this.star.y = Math.floor(Math.random() * scene.GetHeight);
 
         //visuals (stars)
-        var starType = Math.floor(Math.random() * 3);
-        if (starType == 0) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Star0.png");
-        else if (starType == 1) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Star1.png");
-        else if (starType == 2) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Star2.png");
+        if (Math.floor(Math.random() * 5) > 0) {
+            var starType = Math.floor(Math.random() * 3);
+            if (starType == 0) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Star0.png");
+            else if (starType == 1) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Star1.png");
+            else if (starType == 2) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Star2.png");
 
-        this.star.width = this.speed * 2;
-        this.star.height = this.speed * 2;
+            this.star.width = this.speed * 2;
+            this.star.height = this.speed * 2;
+            this.star.alpha = 1;
+        } else {
+            var starType = Math.floor(Math.random() * 3);
+            if (starType == 0) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Meteor0.png");
+            else if (starType == 1) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Meteor1.png");
+            else if (starType == 2) this.star.texture = PIXI.Texture.from("Assets/Used/Map/Meteor2.png");
+
+            this.star.width = this.speed * 15;
+            this.star.height = this.speed * 15;
+            this.star.alpha = .4;
+        }
 
         this.star.rotation = (Math.floor(Math.random() * 10) - 5) / 5;
     }

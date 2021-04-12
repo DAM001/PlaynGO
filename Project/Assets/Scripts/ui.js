@@ -13,7 +13,8 @@ class Ui {
 
     gameOver() {
         document.getElementById("gameOver").style.display = "block";
-        spawner.setActive(false);
+        spawner0.setActive(false);
+        spawner1.setActive(false);
 
         this.musicPlayer.src = "Assets/Sounds/Music/GameOver.mp3";
         this.playGameOverMusic();
@@ -22,7 +23,8 @@ class Ui {
     restart() {
         document.getElementById("gameOver").style.display = "none";
         player.restart();
-        spawner.setActive(true);
+        spawner0.setActive(true);
+        spawner1.setActive(true);
 
         this.score = 0;
         document.getElementById("score").innerHTML = "Score: 0";

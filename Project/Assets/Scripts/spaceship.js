@@ -62,7 +62,22 @@ class Spaceship {
         }
     }
 
+    //random movement
+    newDirection = 30;
+    newDirectionCounter = 0;
+    newDirectionType = 0;
+    randomMovement(speed) {
+        if (this.newDirectionType == 0) this.moveDown(speed * this.moveDirection);
+        else this.moveUp(speed * this.moveDirection);
 
+        this.newDirectionCounter++;
+        if (this.newDirectionCounter < this.newDirection) return;
+        this.newDirection = Math.floor(Math.random() * 30) + 30;
+        this.newDirectionCounter = 0;
+
+        this.newDirectionType = Math.floor(Math.random() * 2);
+        this.moveDirection = Math.random() * 1;
+    }
 
     die() {
         this.explotion();

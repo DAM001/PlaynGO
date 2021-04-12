@@ -4,7 +4,8 @@ let ui;
 let background;
 
 let player;
-let spawner;
+let spawner0;
+let spawner1;
 
 window.onload = startFunction;
 
@@ -13,7 +14,8 @@ function startFunction() {
     scene = new Scene(800, 600);
     ui = new Ui();
     background = new Background();
-    spawner = new Spawner();
+    spawner0 = new Spawner(0, 120);
+    spawner1 = new Spawner(1, 200);
     player = new Player();
 
     start();

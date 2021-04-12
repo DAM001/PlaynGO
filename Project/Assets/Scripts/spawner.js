@@ -1,14 +1,17 @@
 class Spawner {
-    spawnRate = 120;
+    spawnRate = 100;
     cooldown = 120;
 
     active = false;
 
-    constructor() {
+    constructor(enemyType, spawnRate) {
+        this.spawnRate = spawnRate;
+
         updateObjects.push(this);
 
         for (var i = 0; i < this.maxEnemyNum; i++) {
-            this.enemies[i] = new Enemy();
+            if (enemyType == 0) this.enemies[i] = new EnemyBase(100, 5, new PIXI.Texture.from("Assets/Used/Enemy0.png"), true);
+            if (enemyType == 1) this.enemies[i] = new EnemyBase(30, 10, new PIXI.Texture.from("Assets/Used/Enemy1.png"), false);
             updateObjects.push(this.enemies[i]);
         }
     }
@@ -28,8 +31,7 @@ class Spawner {
         this.cooldown = this.spawnRate;
         if (this.spawnRate > 30) this.spawnRate -= 1;
 
-
-        this.enemies[this.currentEnemyIndex].create();
+        this.enemies[this.currentEnemyIndex].spawn();
         if (this.currentEnemyIndex < this.maxEnemyNum - 1) this.currentEnemyIndex++;
         else this.currentEnemyIndex = 0;
     }
