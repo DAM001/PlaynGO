@@ -3,7 +3,7 @@
 This project made for the **Play'n Go** frontend developer team in one week!
 <br>I used only **JS** and **PixiJS**.
 
-![Screenshot](https://damdev.xyz/Data/Posts/Projects/playnGoTask/playnGoTask0.png)
+![Screenshot](https://damdev.xyz/Data/Posts/Projects/playnGoTask/playnGoTask0.jpg)
 <br>Check out on my website: https://damdev.xyz/Content/playngoTest/
 
 ### Goal:
